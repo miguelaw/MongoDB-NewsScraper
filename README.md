@@ -16,11 +16,11 @@ The demo of this application can be found [here](https://news-scraper-mw.herokua
 
 To run the application locally, first clone this repository with the following command.
 
-	git clone https://github.com/miguelaw/MongoDB-DataScraper.git
+	git clone https://github.com/miguelaw/MongoDB-NewsScraper.git
 	
 Access to the project's folder
 
-	cd MongoDB-DataScraper
+	cd MongoDB-NewsScraper
 
 Next, install the application dependencies.
 
