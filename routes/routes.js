@@ -6,8 +6,8 @@ let request = require("request");
 mongoose.Promise = Promise;
 
 // Requiring our Note and Article models
-let Note = require("../models/note.js");
-let Article = require("../models/article.js");
+let Note = require("../models/Note.js");
+let Article = require("../models/Article.js");
 
 // Routes
 module.exports = function(app) {

@@ -1,6 +1,6 @@
 // Require mongoose
 let mongoose = require("mongoose");
-let Note = require("./note.js");
+let Note = require("./Note.js");
 
 // Create Schema class
 let Schema = mongoose.Schema;
