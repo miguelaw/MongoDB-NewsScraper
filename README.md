@@ -10,7 +10,7 @@ The user, can also **Save the Article**, **Create a Note** in it, and **See Note
 
 ## Demo
 
-The demo of this application can be found [here](https://news-scraper-mw.herokuapp.com/).
+The demo of this application can be found [here](https://mw-news-scraper.herokuapp.com/).
 
 ## Installation
 
