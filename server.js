@@ -6,14 +6,12 @@ var method = require("method-override");
 let mongoose = require("mongoose");
 
 
-let dbUrl = 'mongodb://localhost/HeadlinesDB';
+let PORT = process.env.PORT || 8080;
 
-if (process.env.MONGODB_URI) {
-	mongoose.connect(process.env.MONGODB_URI);
-}
-else {
-	mongoose.connect(dbUrl);
-};
+let localDB = 'mongodb://localhost/HeadlinesDB';
+let MONGODB_URI = process.env.MONGODB_URI || localDB;
+
+mongoose.connect(MONGODB_URI);
 
 // Database configuration with mongoose
 mongoose.Promise = Promise;
@@ -30,11 +28,8 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-let port = process.env.PORT || 8080;
-
 // Initialize Express
 let app = express();
-
 
 
 // Use morgan and body parser with our app
@@ -56,7 +51,7 @@ app.set("view engine", "handlebars");
 
 require("./routes/routes.js")(app);
 
-// Listen on port 8080
-app.listen(port, function() {
-  console.log("App is running on port " + port);
+// Listen on PORT 8080
+app.listen(PORT, function() {
+  console.log("App is running on PORT " + PORT);
 });

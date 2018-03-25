@@ -5,10 +5,10 @@ $(document).on("click", "#scrape", function() {
 });
 
 $(document).on("click", ".saveArticle", function() {
-    var thisBtnId = $(this).attr("id");
-    var aTagId = thisBtnId.substring(thisBtnId.indexOf("-") + 1);
-    var aTag = $("#" + aTagId);
-    var article = {};
+    let thisBtnId = $(this).attr("id");
+    let aTagId = thisBtnId.substring(thisBtnId.indexOf("-") + 1);
+    let aTag = $("#" + aTagId);
+    let article = {};
     article.articleId = aTagId;
     article.title = aTag.html().trim();
     article.link = aTag.attr("href").trim();
@@ -27,14 +27,14 @@ $(document).on("click", ".saveArticle", function() {
 });
 
 $(document).on("click", ".addNote", function() {
-    var thisId = $(this).attr("id");
-    var articleId = thisId.substring(thisId.indexOf("-") + 1);
+    let thisId = $(this).attr("id");
+    let articleId = thisId.substring(thisId.indexOf("-") + 1);
     $("#saveNote").attr("data", articleId);
 });
 
 $(document).on("click", "#saveNote", function() {
-    var title = $("#noteTitle").val().trim();
-    var body = $("#noteArea").val().trim();
+    let title = $("#noteTitle").val().trim();
+    let body = $("#noteArea").val().trim();
     if (title == "") {
         alert("Please enter a title");
         return;
@@ -43,11 +43,11 @@ $(document).on("click", "#saveNote", function() {
         alert("Please enter a note");
         return;
     }
-    var articleId = $(this).attr("data");
-    var aTag = $("#" + articleId);
-    var articleTitle = aTag.text().trim();
+    let articleId = $(this).attr("data");
+    let aTag = $("#" + articleId);
+    let articleTitle = aTag.text().trim();
 
-    var data = {
+    let data = {
         "articleTitle": articleTitle,
         "title": title,
         "body": body
@@ -65,21 +65,21 @@ $(document).on("click", "#saveNote", function() {
 });
 
 $(document).on("click", ".seeNotes", function() {
-    var thisId = $(this).attr("id");
-    var articleId = thisId.substring(thisId.indexOf("-") + 1);
-    var aTag = $("#" + articleId);
-    var title = aTag.text().trim();
-    var notesBody = $("#seeNotesBody");
+    let thisId = $(this).attr("id");
+    let articleId = thisId.substring(thisId.indexOf("-") + 1);
+    let aTag = $("#" + articleId);
+    let title = aTag.text().trim();
+    let notesBody = $("#seeNotesBody");
     notesBody.attr("data", articleId);
     $.get("/seeNotes/" + title, function(data, status) {
-        var notesBody = $("#seeNotesBody");
+        let notesBody = $("#seeNotesBody");
         notesBody.html("");
         if (data == null || data.length == 0) {
             notesBody.html("<p>No notes are available for this article.</p>");
             return;
         }
-        var html = "";
-        for (var i = 0; i < data.length; i++) {
+        let html = "";
+        for (let i = 0; i < data.length; i++) {
             html += "<div class=\"panel panel-default\">";
             html += "<p class=\"panel-heading text-center\">" + data[i].title + "</p>";
             html += "<p class=\"panel-body\">" + data[i].body + "</p>";
@@ -98,13 +98,13 @@ $(document).on("click", ".closeBtn", function() {
 
 
 $(document).on("click", ".deleteNote", function() {
-    var thisBtn = $(this);
-    var noteId = thisBtn.attr("id");
+    let thisBtn = $(this);
+    let noteId = thisBtn.attr("id");
     $.post("/deleteNote/" + noteId, function(data, status) {
         console.log(data);
         if (!jQuery.isEmptyObject(data)) {
             thisBtn.parent().parent().remove();
-            var notesBody = $("#seeNotesBody");
+            let notesBody = $("#seeNotesBody");
             if (notesBody.html() == "") {
                 notesBody.html("<p>No notes are available for this article.</p>");
             }
