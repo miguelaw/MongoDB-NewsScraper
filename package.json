@@ -1,5 +1,5 @@
 {
-  "name": "mongodb-datascraper",
+  "name": "mongodb-newscraper",
   "version": "0.0.0",
   "description": "Scrapping Data from Sites using Cheerio & MongoDB",
   "main": "server.js",
@@ -9,21 +9,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miguelaw/MongoDB-DataScraper.git"
+    "url": "git+https://github.com/miguelaw/MongoDB-NewsScraper.git"
   },
   "author": "Miguel W.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/miguelaw/MongoDB-DataScraper/issues"
+    "url": "https://github.com/miguelaw/MongoDB-NewsScraper/issues"
   },
-  "homepage": "https://github.com/miguelaw/MongoDB-DataScraper#readme",
+  "homepage": "https://github.com/miguelaw/MongoDB-NewsScraper#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
     "cheerio": "^0.22.0",
     "express": "^4.14.1",
     "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
     "mongoose": "^4.8.2",
-    "morgan": "^1.8.1",
+    "morgan": "^1.9.0",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   }

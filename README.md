@@ -1,4 +1,4 @@
-# MongoDB DataScraper
+# MongoDB News Scraper
 
 
 ## Brief Description
